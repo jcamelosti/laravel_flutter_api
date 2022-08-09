@@ -20,6 +20,14 @@ use Illuminate\Support\Facades\Route;
 
 
 //API route for register new user
-Route::post('/register', [App\Http\Controllers\API\UserController::class, 'register']);
+Route::post('/register', [App\Http\Controllers\Api\UserController::class, 'register']);
 //API route for login user
-Route::post('/login', [App\Http\Controllers\API\UserController::class, 'login']);
+Route::post('/login', [App\Http\Controllers\Api\UserController::class, 'login']);
+
+
+Route::middleware('auth:api')->group( function () {
+    //Route::resource('products', ProductController::class);
+    Route::get('/auth', function () {
+        return 'oi';
+    });
+});
