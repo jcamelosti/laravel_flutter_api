@@ -26,8 +26,5 @@ Route::post('/login', [App\Http\Controllers\Api\UserController::class, 'login'])
 
 
 Route::middleware('auth:api')->group( function () {
-    //Route::resource('products', ProductController::class);
-    Route::get('/auth', function () {
-        return 'oi';
-    });
+    Route::get('/welcomeinfo/', [App\Http\Controllers\Api\ArticleController::class, 'welcomeInfo']);
 });
